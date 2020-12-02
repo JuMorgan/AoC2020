@@ -1,4 +1,5 @@
-mod day1; use day1::*;
+mod day1;
+mod day2;
 use std::{
     env,
     fs::File,
@@ -15,8 +16,15 @@ fn day1() {
     .iter_mut()
     .map(|x| x.parse().unwrap()).collect();
 
-    println!("{}", match run_part1(&data, 2020) {Some(x) => x, _ => 0});
-    println!("{}", match run_part2(&data, 2020) {Some(x) => x, _ => 0});
+    println!("{}", match day1::run_part1(&data, 2020) {Some(x) => x, _ => 0});
+    println!("{}", match day1::run_part2(&data, 2020) {Some(x) => x, _ => 0});
+}
+
+fn day2() {
+    let data : Vec<String> = lines_from_file("./input/day2.txt").expect("Could not load data file");
+
+    println!("{}", day2::run_part1(&data));
+    println!("{}", day2::run_part2(&data));
 }
 
 fn main() {
@@ -32,6 +40,7 @@ fn main() {
             match args[1].parse() {
                 Ok(day) => match day {
                     1 => day1(),
+                    2 => day2(),
                     _ => println!("{} is an invald day number", day)
                 },
                 _ => println!("Invalid argument. expected day number")
