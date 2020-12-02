@@ -23,7 +23,6 @@ pub fn run_part1(data : &Vec<String>) -> u64 {
 
 }
 
-//TODO: make this take a slice to be more idiomatic
 pub fn run_part2(data : &Vec<String>) -> u64 {
 
     data.iter().filter(|x| {
