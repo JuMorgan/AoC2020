@@ -1,5 +1,7 @@
 mod day1;
 mod day2;
+mod day3;
+
 use std::{
     env,
     fs::File,
@@ -27,6 +29,13 @@ fn day2() {
     println!("{}", day2::run_part2(&data));
 }
 
+fn day3() {
+    let data : Vec<String> = lines_from_file("./input/day3.txt").expect("Could not load data file");
+
+    println!("{}", day3::run_part1(&data));
+    println!("{}", day3::run_part2(&data));
+}
+
 fn main() {
     let args: Vec<String> = env::args().collect();
 
@@ -41,6 +50,7 @@ fn main() {
                 Ok(day) => match day {
                     1 => day1(),
                     2 => day2(),
+                    3 => day3(),
                     _ => println!("{} is an invald day number", day)
                 },
                 _ => println!("Invalid argument. expected day number")
